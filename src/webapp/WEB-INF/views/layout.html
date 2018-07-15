@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="dist/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="dist/style/style.css">
+</head>
+<body>
+<div class="container-fluid p-0 p-0">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="navbar-header text-uppercase">
+            <a class="navbar-brand" href="#">fastocom</a>
+        </div>
+        <form action="/logout" method="post">
+            <button class="btn btn-default text-uppercase">déconnexion</button>
+        </form>
+
+    </nav>
+    <div layout:fragment="body" class="row m-0"></div>
+
+</div>
+</body>
+</html>

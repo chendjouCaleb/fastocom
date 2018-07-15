@@ -1,0 +1,28 @@
+.description-list{
+  border: 1px solid $color-gray;
+}
+
+.description-list dl{
+  display: block;
+  margin-top: 3px;
+  padding-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 3px;
+}
+
+.description-list dd, .description-list dt{
+  display: inline-block;
+  font-size: 15px;
+}
+
+.description-list dt{
+  font-family: "roboto-light";
+  font-weight: normal;
+  margin-right: 5px;
+
+}
+
+.description-list dd{
+
+  font-family: "roboto-medium", sans-serif;
+}

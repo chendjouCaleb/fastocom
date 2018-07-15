@@ -1,0 +1,80 @@
+.form{
+  border: 1px solid $color-gray;
+  border-radius: 2px;
+  background: #FFFFFF;
+}
+
+.legend{
+  border-bottom: 1px solid $color-gray;
+  text-align:  center;
+}
+
+input.ng-dirty.ng-invalid{
+  border: 2px solid #E80C7A
+}
+input.ng-dirty.ng-valid { border: 2px solid #00CB70 }
+.form-radio-control input, .form-checkbox-control input {
+  display: none; }
+
+
+.form-control{
+  border-radius: 1px;
+  outline: none;
+}
+.form-control:focus{
+  outline: none;
+  box-shadow: none;
+  border-color: $info-color;
+}
+
+.form-radio-control, .form-checkbox-control {
+  position: relative;
+  display: inline-block; }
+
+.form-radio-control:hover, .form-checkbox-control:hover {
+  cursor: pointer; }
+
+.form-checkbox-control .rounded, .form-radio-control .rounded {
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border: 2px solid #AEB1B2;
+  vertical-align: middle;
+  cursor: pointer;
+  transition-duration: .5s;
+  margin-right: 8px;
+  border-radius: 2px; }
+
+.form-radio-control .rounded {
+  border-radius: 50%; }
+
+.form-checkbox-control input[type="checkbox"] + .rounded:after, .form-radio-control input[type="radio"] + .rounded:after {
+  font-family: 'mdi';
+  content: '';
+  background: transparent;
+  display: block;
+  width: 20px;
+  height: 20px;
+  transform: scale(2);
+  color: transparent;
+  transition: transform .2s, content .5s, background .5s, color 1.2s;
+  border-radius: 2px;
+  position: absolute;
+  font-size: 18px;
+  line-height: 18px;
+  left: 0px;
+  top: 1px; }
+
+.form-radio-control input[type="radio"] + .rounded:after {
+  content: ' ';
+  border-radius: 50%; }
+
+.form-radio-control input[type="radio"]:checked + .rounded:after {
+  background: #2DC3E8;
+  transform: scale(1); }
+
+.form-checkbox-control input[type="checkbox"]:checked + .rounded:after {
+  color: #FFF;
+  background: #2DC3E8;
+  transform: scale(1); }
