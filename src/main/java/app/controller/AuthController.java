@@ -5,6 +5,7 @@ import app.entity.identity.AccountRole;
 import app.identity.IdentityManager;
 import app.identity.IdentityResult;
 import app.model.RegistrationModel;
+import app.repository.contract.IRoleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,11 +24,13 @@ import javax.validation.Valid;
 public class AuthController {
     private IdentityManager identityManager;
     private PasswordEncoder passwordEncoder;
+    private IRoleRepository roleRepository;
     private Logger logger = LoggerFactory.getLogger(AuthController.class);
 
-    public AuthController(IdentityManager identityManager, PasswordEncoder passwordEncoder) {
+    public AuthController(IdentityManager identityManager, PasswordEncoder passwordEncoder, IRoleRepository roleRepository) {
         this.identityManager = identityManager;
         this.passwordEncoder = passwordEncoder;
+        this.roleRepository = roleRepository;
     }
 
     @GetMapping("login")
@@ -50,6 +53,9 @@ public class AuthController {
             account.getUser().setName(model.getName());
             account.getUser().setSurname(model.getSurname());
             account.getDetails().setPasswordHash(passwordEncoder.encode(model.getPassword()));
+
+            AccountRole accountRole = new AccountRole(account, roleRepository.findByName("user"));
+            account.getAccountRoles().add(accountRole);
 
             IdentityResult result1 = identityManager.save(account);
 

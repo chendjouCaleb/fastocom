@@ -23,30 +23,32 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     }
 
     public SecurityConfiguration(UserDetailsService userDetailsService) {
-        super(true);
+        //super(true);
         this.userDetailsService = userDetailsService;
     }
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder authManager) throws Exception {
         authManager.userDetailsService(userDetailsService);
+
     }
 
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.securityContext().and().exceptionHandling();
-        httpSecurity.servletApi();
-        httpSecurity.formLogin()
+        httpSecurity
+          .authorizeRequests()
+                .antMatchers("/login", "/registration", "/web/dist/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
                 .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/nebular/1/display")
-                .failureUrl("/login?error=true")
+
+                .defaultSuccessUrl("/account/home")
+                .failureUrl("/login")
                 .and()
-                .logout()
-                .logoutSuccessUrl("/login")
-                .logoutUrl("/logout")
+                .logout().logoutSuccessUrl("/login")
                 .and()
-                .anonymous().principal("guest")
-                .and()
-                .rememberMe().useSecureCookie(true).rememberMeCookieName("fastocom_cookie");
+                .rememberMe().key("fastocom_xxx")
+                .and().csrf().disable();
+
     }
 
     @Bean

@@ -15,7 +15,7 @@ import java.io.File;
 public class TomcatServer implements IServer{
 
     private static final int PORT = 9500;
-    private static final String DIR = "src/webapp/";
+    private static final String DIR = "web/";
     private Tomcat tomcat;
     private Logger logger = LoggerFactory.getLogger(TomcatServer.class);
     private long begin;

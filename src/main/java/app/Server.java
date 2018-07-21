@@ -15,13 +15,13 @@ public class Server {
     static void createServer(){
         long begin = System.currentTimeMillis();
         System.setProperty(Constants.SKIP_JARS_PROPERTY, "*.jar");
-        String appBase = ".";
+        String appBase = "";
         tomcat = new Tomcat();
         tomcat.setBaseDir(createTempDir());
         tomcat.setPort(PORT);
         tomcat.getHost().setAppBase(appBase);
         try {
-            tomcat.addWebapp("", appBase);
+            tomcat.addWebapp("/src/web", appBase);
             tomcat.start();
 
         } catch (Exception e) {

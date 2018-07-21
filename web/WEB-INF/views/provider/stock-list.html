@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="~{../views/provider/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/web/dist/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/web/dist/style/style.css">
+    <link rel="stylesheet" href="/web/dist/MaterialDesignIcons/css/materialdesignicons.min.css">
+    <title>Fournisseur</title>
+</head>
+<body>
+<div layout:fragment="body1" th:object="${provider}">
+    <div class="col-12 text-right">
+        <a th:href="@{/provider/{id}/stock/add(id=${provider.id})}" class="btn btn-info">Ajouter un produit</a>
+    </div>
+    <div class="col-12 row ">
+        <div th:each="p: ${stocks}" class="col-lg-4">
+            <div th:insert="~{../views/card :: stock(${p}, @{/provider/{id}/stock/{sid}/home(id=${provider.id}, sid=${p.id})} ) }"></div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

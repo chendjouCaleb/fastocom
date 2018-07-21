@@ -10,6 +10,7 @@ import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Account")
-public class Account {
+public class Account implements Principal{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +31,7 @@ public class Account {
     @JoinColumn(name = "AccountDetailsID", foreignKey = @ForeignKey(name = "FK_Account_AccountDetails_AccountDetailsID"))
     private Details details = new Details();
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<AccountRole> accountRoles = new HashSet<>();
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, optional = false)
@@ -115,6 +116,11 @@ public class Account {
             return account == this;
         }
         return account.getId().equals(id);
+    }
+
+    @Override
+    public String getName() {
+        return id.toString();
     }
 
     public List<Connection> getConnections() {

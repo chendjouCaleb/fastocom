@@ -1,18 +1,20 @@
 package app.entity.identity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 public class Role{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
+    public Role(){}
+    public Role(String name) {
+        this.name = name;
+    }
 
     @OneToMany(mappedBy = "role")
     private Set<AccountRole> accountRoles = new HashSet<>();

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="~{../views/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/web/dist/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/web/dist/style/style.css">
+    <link rel="stylesheet" href="/web/dist/MaterialDesignIcons/css/materialdesignicons.min.css">
+    <title>Fournisseur</title>
+</head>
+<body>
+<div layout:fragment="body" th:object="${provider}">
+
+        <ul class="col-lg-2 list-group">
+            <li class="list-group-item"><a th:href="@{/provider/{id}/home(id=${provider.id})}">Accueil</a></li>
+            <li class="list-group-item"><a th:href="@{/provider/{id}/stock(id=${provider.id})}">Produits</a></li>
+            <li class="list-group-item"><a th:href="@{/provider/{id}/commande(id=${provider.id})}">commandes</a></li>
+        </ul>
+        <div class="col-lg-9 mt-3 row" layout:fragment="body1">
+
+        </div>
+    <style>
+        .file-group {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .file-group input {
+            position: absolute;
+            font-size: 50px;
+            opacity: 0;
+            right: 0;
+            top: 0;
+        }
+    </style>
+
+</div>
+
+
+</body>
+</html>

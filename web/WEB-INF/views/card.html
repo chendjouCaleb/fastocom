@@ -1,0 +1,34 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment="organisation(type, p, href)" class="card">
+    <div class="card-body">
+        <img th:src="@{/organisation/{id}/image(id=${p.id})}" alt="" class="card-img">
+        <h5 class="card-title text-uppercase py-3" th:text="${type} + ${p.info.name}">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted" th:text="'Tél &bull;  ' + ${p.contact.phone}">Card subtitle</h6>
+        <h6 class="card-subtitle my-2 text-muted" th:text="'Email &bull;  ' + ${p.contact.email}">Card subtitle</h6>
+    </div>
+    <div class="card-footer text-right">
+        <a th:href="${href}" class="btn btn-info"><i class="mdi mdi-plus"></i>plus</a>
+    </div>
+</div>
+
+
+
+<div th:fragment="stock(s, href)" class="card">
+    <div class="card-body">
+        <img th:src="@{/stock/{id}/image(id=${s.id})}" alt="" class="card-img">
+        <h5 class="card-title text-uppercase py-3" th:text="${s.product.name}">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-muted" th:text="${s.product.retailPrice} + ' FCFA'">Card subtitle</h6>
+        <h6 class="card-subtitle mb-2 text-muted" th:text="${s.product.wholeSalePrice} + ' FCFA'">Card subtitle</h6>
+        <h6 class="card-subtitle my-2 text-muted" th:text="'Quantité &bull;  ' + ${s.quantity}">Card subtitle</h6>
+    </div>
+    <div class="card-footer text-right">
+        <a th:href="${href}" class="btn btn-info"><i class="mdi mdi-plus"></i>plus</a>
+    </div>
+</div>
+</body>
+</html>

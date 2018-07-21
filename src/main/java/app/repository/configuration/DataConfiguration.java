@@ -1,6 +1,9 @@
 package app.repository.configuration;
 
+import app.entity.identity.Role;
+import app.repository.contract.IRoleRepository;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +24,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.NoResultException;
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -28,7 +32,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource("classpath:jpa.properties")
 @ComponentScan("app.repository.implementation")
-public class DataConfiguration {
+public class DataConfiguration{
     private final Environment env;
     private ApplicationContext applicationContext;
 
@@ -61,7 +65,7 @@ public class DataConfiguration {
         factory.setPackagesToScan("app.entity");
         Properties jpaProperties = new Properties();
         jpaProperties.put("hibernate.hbm2ddl.auto", "update");
-        jpaProperties.put("hibernate.show_sql", true);
+        jpaProperties.put("hibernate.show_sql", false);
         jpaProperties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
 
         jpaProperties.put("hibernate.max_fetch_depth", 3);

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="~{../views/provider/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/web/dist/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/web/dist/style/style.css">
+    <link rel="stylesheet" href="/web/dist/MaterialDesignIcons/css/materialdesignicons.min.css">
+    <title>Fournisseur</title>
+</head>
+<body>
+<div layout:fragment="body1" th:object="${provider}">
+
+    <form action="" method="post" th:object="${stockModel}" class="col-lg-4 offset-lg-3 mt-5"  style="background-color: #fff; border: 1px solid #eeebe6">
+        <legend class="legend p-3 mb-5 text-uppercase">ajouter un produit</legend>
+
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input id="name" class="form-control" th:field="*{name}" >
+            <div class="text-danger" th:if="${#fields.errors('name')}" th:errors="*{name}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="wholeSalePrice">Prix en stock</label>
+            <input id="wholeSalePrice" class="form-control" th:field="*{wholeSalePrice}" >
+            <div class="text-danger" th:if="${#fields.errors('wholeSalePrice')}" th:errors="*{wholeSalePrice}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="retailPrice">Prix en pharmacie</label>
+            <input id="retailPrice" class="form-control" th:field="*{retailPrice}" >
+            <div class="text-danger" th:if="${#fields.errors('retailPrice')}" th:errors="*{retailPrice}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantité</label>
+            <input name="quantity" id="quantity" class="form-control" th:field="*{quantity}" >
+            <div class="text-danger" th:if="${#fields.errors('quantity')}" th:errors="*{quantity}"></div>
+        </div>
+
+
+        <hr>
+        <div class="form-group mt-5">
+            <button class="btn btn-info btn-block text-uppercase my-3">ajouter</button>
+        </div>
+
+    </form>
+</div>
+
+
+</body>
+</html>

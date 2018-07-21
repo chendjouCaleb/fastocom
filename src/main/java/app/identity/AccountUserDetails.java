@@ -20,9 +20,9 @@ public class AccountUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        this.account.getAccountRoles().forEach(accountRole -> {
-            grantedAuthorities.add(new Authority(accountRole.getRole().getName()));
-        });
+//        this.account.getAccountRoles().forEach(accountRole -> {
+//            grantedAuthorities.add(new Authority(accountRole.getRole().getName()));
+//        });
         return grantedAuthorities;
     }
 
@@ -43,7 +43,7 @@ public class AccountUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return account.getActive().equals(Activity.INACTIVE);
+        return account.getActive().equals(Activity.ACTIVE);
     }
 
     @Override
@@ -54,5 +54,16 @@ public class AccountUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return account.getActive().equals(Activity.ACTIVE);
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountUserDetails{" +
+                "account=" + account +
+                '}';
     }
 }

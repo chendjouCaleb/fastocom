@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/web/dist/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/web/dist/style/style.css">
+    <link rel="stylesheet" href="/web/dist/MaterialDesignIcons/css/materialdesignicons.min.css">
+</head>
+<body>
+<div class="container-fluid p-0 p-0">
+    <div th:insert="~{navbar :: navbar}"></div>
+
+    <div layout:fragment="body" class="row m-0 py-3 bg-light"></div>
+
+    <script src="/web/dist/js/jquery.js"></script>
+    <script src="/web/dist/bootstrap/js/bootstrap.js"></script>
+    <script src="/web/dist/js/image.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+$text-color: #424242;
+$info-color: #00ADD2;
+$info-color-1: #c3cfd2;
+$info-color-hover: #08A4CB;
+$danger-color: #e81b58;
+$warning-color: #FF6D37;
+$success-color: #00CB70;
+$color-gray: #E4E4E4;
+$dark-color: #06133B;
+$primary-color: #06133B;
+$dark-color-2: #06133B;
+$gray-color-2: #9c9c9c;
+$primary-color-hover: #050e2b;
+$warning-color-hover: #ce582c;
+$success-color-hover: #00af60;
+$danger-color-hover: #cc184d;
+$info-color-hover: #0799be;
+
+@font-face {
+  font-family: 'roboto';
+  src: url('open-sans/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'roboto-medium';
+  src: url('open-sans/OpenSans-Semibold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'roboto-bold';
+  src: url('open-sans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'roboto-thin';
+  src: url('open-sans/OpenSans-Thin.ttf');
+}
+
+@font-face {
+  font-family: 'roboto-light';
+  src: url('open-sans/OpenSans-Light.ttf');
+}
+
+@font-face {
+  font-family: "mdi";
+  src: url('../MaterialDesign-Webfont-master/fonts/materialdesignicons-webfont.ttf');
+}
+$font-regular: "roboto";
+$font-light: "roboto-light";
+$font-thin: "roboto-thin";
+$font-bold: "roboto-bold";
+$font-medium: "roboto-medium";
+
+body{
+  font-family: $font-regular, "Helvetica", "Arial", sans-serif;
+  font-size: 13px;
+  color: $text-color;
+  background: #E4E4E4;
+}
+
+
+
+.bg-light{
+  background: #FFFFFF;
+}
+
+.bg-dark{  background-color: $dark-color;  }
+.bg-info{  background-color: $info-color;  }
+.bg-danger{  background-color: $danger-color;  }
+.bg-primary{  background-color: $primary-color;  }
+.bg-warning{  background-color: $warning-color;color:#fff  }
+.bg-success{  background-color: $success-color;  }
+
+.bg-info-1 { background-color: $info-color-1; }
+
+.btn, .form-control{
+  font-size: 13px;
+}
+.btn-sm, .form-control-sm{
+  font-size: 11px;
+}
+.dropdown-item-text{
+  font-size: 13px;
+}
+.dropdown-item{
+  padding: 0;
+}
+input, a, button{
+  outline: none;
+  font-family: $font-regular, sans-serif;
+}
+
+input:focus, textarea:focus, a:focus, a:active, button:focus, button:active {
+  box-shadow: none;
+  outline: none; }
+
+a{
+  color: $info-color;
+}
+a:hover{
+  color: $info-color-hover;
+}
+.br-default{
+  border: 1px solid $color-gray
+}
+.btn{
+  text-transform: uppercase;
+  padding: 7px 13px 7px 13px;
+  font-family: 'roboto-medium', sans-serif;
+  font-size: 14px;
+  border-radius: 2px
+}
+.btn:hover{
+  cursor: pointer;
+}
+.btn-sm{font-size: 10px}
+.btn-info, .label-info{
+  background-color: $info-color;
+  border-color: $info-color;
+}
+.btn-danger, .label-danger{
+  background-color: $danger-color;
+}
+
+.label { padding: 4px; cursor: pointer; font-size: 10px;
+  color: #fff;}
+.btn-danger:hover{
+  background-color: $danger-color;
+  border-color: $danger-color;
+}
+.btn-warning, .label-warning{
+  background-color: $warning-color;
+  color: #FFFFFF;
+  border-color: $warning-color;
+}
+.btn-success, .label-success{
+  background-color: $success-color;
+  border-color: $success-color;
+}
+
+.btn-primary, .label-primary{
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.btn-info:hover{
+  background-color: $info-color-hover;
+}
+.btn-danger:hover{
+  background-color: $danger-color-hover;
+}
+
+.btn-primary:hover{
+  background-color: $primary-color-hover;
+}
+.btn-success:hover{
+  background-color: $success-color-hover;
+}
+.btn-warning:hover{
+  background-color: $warning-color-hover;
+  color: #FFFFFF;
+}
+
+
+.btn-outline-warning{
+  border-color: $warning-color;
+  color: $warning-color;
+}
+
+.btn-outline-danger{
+  border-color: $danger-color;
+  color: $danger-color;
+}
+
+.btn-outline-danger:hover{
+  background-color: $danger-color;}
+
+.btn-danger-inline{
+  color: #FFF;
+  background-color: $danger-color;}
+
+.btn-danger-inline:hover{
+  color: $danger-color;
+  background-color: transparent;}
+
+.btn-outline-info{
+   border-color: $info-color;
+   color: $info-color;
+ }
+.btn-outline-light{
+  background-color: transparent;
+  border-color: $color-gray;
+  color: $color-gray;
+}
+.btn-outline-light:hover{
+  background-color: $dark-color;
+  color: $color-gray;
+}
+.btn-outline-primary{
+  border-color: $primary-color;
+  color: $primary-color;
+}
+.btn-outline-primary:hover{
+  background-color: $primary-color;
+  border-color: $primary-color;
+  color: $color-gray;
+}
+.text-primary{
+  color: $primary-color;
+}
+
+.text-light{ font-family: $font-light, sans-serif;  }
+.text-medium{ font-family: $font-medium, sans-serif;  }
+.text-bold { font-family: $font-bold, sans-serif}
+.text-thin{  font-family: $font-thin, sans-serif}
+.text-regular{ font-family: $font-regular, sans-serif }
+.text-italic{font-style: italic;}
+
+
+input, textarea{
+  color: $text-color;
+}
+input:focus, textarea:focus{
+  outline: none;
+}
+.bg-danger{  background-color: $danger-color;  color: #fff; }
+.bg-info{  background-color: $info-color; color: #fff;  }
+.bg-warning{  background-color: $warning-color;color: #fff; }
+.bg-primary{  background-color: $primary-color;color: #fff; }
+.bg-success{  background-color: $success-color;color: #fff; }
+.bg-default{  background-color: $color-gray;}
+.bg-gray-2{ background-color: $gray-color-2;}
+
+.br-1{ border-radius: 0;}
+.br-1{ border-radius: 1px;}
+.br-2{ border-radius: 2px;}
+.br-3{ border-radius: 3px;}
+.br-4{ border-radius: 4px;}
+.br-5{ border-radius: 5px;}
+.br-50{ border-radius: 50%;}
+
+.br-b{
+  border-bottom: 1px solid $color-gray;
+}
+.progress-bar{height: 8px; border-radius: 2px}
+
+.square-200{
+  width: 200px;
+  height: 200px;
+}
+
+.square-100{
+  width: 100px;
+  height: 100px;
+}
+.square-50{
+  width: 50px;
+  height: 50px;
+}
+.circle {
+  border-radius: 50%;
+}
+.square-250{
+  width: 250px;
+  height: 250px;
+}
+
+.square-300{
+  width: 300px;
+  height: 300px;
+}
+.br-default{
+  border: 1px solid $color-gray;
+}
+
+.light-text{
+  color: #FFFFFF;
+}

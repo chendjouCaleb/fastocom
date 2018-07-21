@@ -95,7 +95,8 @@ ext{
             freemaker   : "org.freemarker:freemarker:$version.freemaker",
             thymeleaf   : "org.thymeleaf:thymeleaf:$version.thymeleaf",
             thymeleafsp : "org.thymeleaf:thymeleaf-spring5:3.0.9.RELEASE",
-            layoutDialect   : 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.3.0'
+            layoutDialect   : 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.3.0',
+            extraSecutity  : 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE'
     ]
 
     javax = [
@@ -129,7 +130,7 @@ ext{
 }
 dependencies {
     compile spring.mvc, spring.orm, spring.security, spring.securityConfig, spring.webSecurity, spring.securityOAuth
-    compile misc.thymeleaf, misc.thymeleafsp, misc.layoutDialect
+    compile misc.thymeleaf, misc.thymeleafsp, misc.layoutDialect, misc.extraSecutity
     compile logApi.slf4j, logApi.logback
     compile dbDriver.h2, dbDriver.mysql, misc.jtwig, misc.tiles, misc.jstl, misc.freemaker
     compile misc.tomcat, misc.userType, misc.guava, misc.dbcp, misc.joda, misc.jackson

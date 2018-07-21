@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="~{../views/provider/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/web/dist/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/web/dist/style/style.css">
+    <link rel="stylesheet" href="/web/dist/MaterialDesignIcons/css/materialdesignicons.min.css">
+    <title>Fournisseur</title>
+</head>
+<body>
+<div layout:fragment="body1" th:object="${provider}">
+
+    <form class="col-lg-4" th:action="'/organisation/' + *{id} + '/image'" method="post"
+          enctype="multipart/form-data" id="imageForm">
+        <div class="col-12">
+            <img th:src="@{/organisation/{id}/image(id=*{id})}" alt="" class="br-50pc square-200"
+                 id="image">
+        </div>
+        <div class="col-12 mt-3">
+            <span class="file-group btn btn-info"><i class="mdi mdi-upload"></i>
+            charger
+            <input type="file" name="image"/>
+        </span>
+
+            <button class="btn btn-outline-success">mettre à jour</button>
+        </div>
+    </form>
+    <div class="col-lg-8">
+        <h4 class="text-capitalize" th:text="*{info.name}"></h4>
+        <hr>
+        <div class="col-12 row">
+            <div class="col-lg-1">
+                <img th:src="@{/account/{id}/image(id=*{admin.account.id})}" alt="" class="br-50pc square-50"
+                     style="height: 40px;width: 40px"/>
+            </div>
+            <h6 class="col-lg-10" style="line-height: 50px">
+                <a class="text-bold" th:href="@{/acount/home}"
+                   th:text="*{admin.account.user.name} + ' ' + *{admin.account.user.surname}"></a>
+                est l'administrateur de cette organisation
+            </h6>
+        </div>
+        <hr>
+        <div class="col-12 row">
+            <h6 class="col-12">
+                Télephone &bull; <span class="text-bold" th:text="*{contact.phone}"></span>
+            </h6>
+            <h6 class="col-12 mt-3">
+                Email &bull; <span class="text-bold" th:text="*{contact.email}"></span>
+            </h6>
+        </div>
+        <hr>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

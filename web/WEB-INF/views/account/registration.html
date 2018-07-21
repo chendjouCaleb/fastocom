@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="~{../views/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Enregistrement</title>
+</head>
+<body>
+<div layout:fragment="body">
+    <form action="" method="post" name="registrationForm" th:object="${registrationModel}" class="col-lg-3 offset-lg-8 mt-5" style="background-color: #fff">
+        <legend class="legend p-3 mb-5 text-uppercase">Inscription</legend>
+
+
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input name="name" id="name" class="form-control" th:field="*{name}" >
+            <div class="text-danger" th:if="${#fields.errors('name')}" th:errors="*{name}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="surname">Prénom</label>
+            <input name="surname" id="surname" class="form-control" th:field="*{surname}" >
+            <div class="text-danger" th:if="${#fields.errors('surname')}" th:errors="*{surname}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Adresse électronique</label>
+            <input name="email" id="email" class="form-control" th:field="*{email}">
+            <div class="text-danger" th:if="${#fields.errors('email')}" th:errors="*{email}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input name="phone" id="phone" class="form-control" th:field="*{phone}">
+            <div class="text-danger" th:if="${#fields.errors('phone')}" th:errors="*{phone}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input name="password" type="password" id="password" class="form-control" th:field="*{password}">
+            <div class="text-danger" th:if="${#fields.errors('password')}" th:errors="*{password}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="passwordMatcher">Mot de passe(Confirmation)</label>
+            <input name="passwordMatcher" type="password"  id="passwordMatcher" class="form-control" th:field="*{passwordMatcher}">
+            <div class="text-danger" th:if="${#fields.errors('passwordMatcher')}" th:errors="*{passwordMatcher}"></div>
+        </div>
+
+        <div class="form-group ">En vous s'inscrivant, vous acceptez <a href="#">
+            Les règles et les conditions générales d'utilisation.</a></div>
+        <div class="form-group text-right">
+            <button class="btn btn-info btn-block text-uppercase my-3">S'inscrire</button>
+        </div><hr>
+        <div class="form-group text-center">
+            Vous posséder déjà un compte ?
+            <a class="btn btn-danger btn-block text-uppercase mt-3" href="/login">Connectez vous</a>
+        </div><hr>
+    </form>
+</div>
+
+</body>
+</html>

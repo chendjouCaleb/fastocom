@@ -29,7 +29,7 @@ public abstract class AbstractRepository<Type, IDType> implements IRepository<Ty
         return object;
     }
 
-    @Override
+    @Transactional()
     public Type findById(IDType id) {
         Type object = em.find(type, id);
         if (object == null){

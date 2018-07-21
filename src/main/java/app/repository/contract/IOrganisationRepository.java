@@ -1,7 +1,10 @@
 package app.repository.contract;
 
 
-import app.entity.Organisation;
+import app.entity.identity.Account;
+import app.entity.organisation.Organisation;
 
-public interface IOrganisationRepository<I extends Organisation> extends IRepository<I, Integer>{
+public interface IOrganisationRepository extends IRepository<Organisation, Integer>{
+    Boolean isAdmin(Organisation organisation, Account account);
+
 }
