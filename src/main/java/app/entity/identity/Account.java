@@ -2,6 +2,7 @@ package app.entity.identity;
 
 import app.configuration.JsonDateTimeSerializer;
 import app.entity.Address;
+import app.entity.organisation.Admin;
 import app.enumeration.Activity;
 import app.enumeration.UserType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -57,6 +58,9 @@ public class Account implements Principal{
     @OneToMany(mappedBy = "account")
     @JsonIgnore
     private List<Connection> connections = new ArrayList<>();
+
+    @OneToMany(mappedBy = "account")
+    private List<Admin> admins = new ArrayList<>();
 
 
     public Activity getActive() {
@@ -158,5 +162,13 @@ public class Account implements Principal{
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public List<Admin> getAdmins() {
+        return admins;
+    }
+
+    public void setAdmins(List<Admin> admins) {
+        this.admins = admins;
     }
 }

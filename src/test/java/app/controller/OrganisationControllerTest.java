@@ -8,6 +8,7 @@ import app.repository.configuration.DataConfiguration;
 import app.repository.contract.IAccountRepository;
 import app.repository.contract.IOrganisationRepository;
 import app.service.FileService;
+import app.service.ServiceConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringJUnitConfig(classes = {DataConfiguration.class})
+@SpringJUnitConfig(classes = {DataConfiguration.class, ServiceConfiguration.class})
 class OrganisationControllerTest {
     @Autowired private IAccountRepository accountRepository;
     @Autowired private IOrganisationRepository organisationRepository;

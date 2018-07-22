@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="/web/dist/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/web/dist/style/style.css">
     <link rel="stylesheet" href="/web/dist/MaterialDesignIcons/css/materialdesignicons.min.css">
-    <title>Fournisseur</title>
+    <title>Pharmacie</title>
 </head>
 <body>
-<div layout:fragment="body" th:object="${provider}">
+<div layout:fragment="body" th:object="${pharmacy}">
 
-        <ul class="col-lg-2 list-group">
-            <li class="list-group-item"><a th:href="@{/provider/{id}/home(id=${provider.id})}">Accueil</a></li>
-            <li class="list-group-item"><a th:href="@{/provider/{id}/stock(id=${provider.id})}">Produits</a></li>
-            <li class="list-group-item"><a th:href="@{/provider/{id}/order(id=${provider.id})}">commandes</a></li>
+        <ul class="col-lg-2 list-group bg-dark">
+            <li class="list-group-item bg-dark"><a th:href="@{/pharmacy/{id}/home(id=${pharmacy.id})}">Accueil</a></li>
+            <li class="list-group-item bg-dark"><a th:href="@{/pharmacy/{id}/stock(id=${pharmacy.id})}">Produits</a></li>
+            <li class="list-group-item bg-dark"><a th:href="@{/pharmacy/{id}/order(id=${pharmacy.id})}">commandes</a></li>
         </ul>
         <div class="col-lg-9 mt-3 row" layout:fragment="body1">
 

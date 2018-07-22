@@ -35,7 +35,7 @@ public class Order {
 
     @JsonSerialize(using = JsonDateTimeSerializer.class)
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-    private DateTime responseDate = new DateTime();
+    private DateTime responseDate;
 
     public Integer getId() {
         return id;
@@ -91,5 +91,9 @@ public class Order {
 
     public void setResponseDate(DateTime responseDate) {
         this.responseDate = responseDate;
+    }
+
+    public Double getTotalPrice(){
+        return stock.getProduct().getWholeSalePrice() * quantity;
     }
 }

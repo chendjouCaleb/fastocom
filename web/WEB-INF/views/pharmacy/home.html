@@ -2,7 +2,7 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:th="http://www.thymeleaf.org"
-      layout:decorator="~{../views/layout.html}">
+      layout:decorator="~{../views/pharmacy/layout.html}">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/web/dist/bootstrap/css/bootstrap.css">
@@ -11,8 +11,8 @@
     <title>Pharmacies</title>
 </head>
 <body>
-<div layout:fragment="body">
-    <div class="col-lg-10 bg-light row offset-lg-1 py-5" th:object="${pharmacy}">
+<div layout:fragment="body1">
+    <div class="col-lg-12 bg-light row offset-lg-1 py-5" th:object="${pharmacy}">
 
 
         <form class="col-lg-4" th:action="'/organisation/' + ${pharmacy.id} + '/image'" method="post"

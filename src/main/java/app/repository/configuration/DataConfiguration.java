@@ -71,6 +71,8 @@ public class DataConfiguration{
         jpaProperties.put("hibernate.max_fetch_depth", 3);
         jpaProperties.put("hibernate.jdbc.batch_size", 10);
         jpaProperties.put("hibernate.jdbc.fetch_size", 50);
+        //jpaProperties.put("current_session_context_class", SessionContext.);
+        jpaProperties.put("hibernate.enable_lazy_load_no_trans", true);
         factory.setJpaProperties(jpaProperties);
         factory.afterPropertiesSet();
 

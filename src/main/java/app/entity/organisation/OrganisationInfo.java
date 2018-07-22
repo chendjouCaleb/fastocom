@@ -1,5 +1,7 @@
 package app.entity.organisation;
 
+import app.configuration.JsonDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
@@ -32,8 +34,9 @@ public class OrganisationInfo {
 
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     @NotNull(message = "Veuillez renseignez une date")
+    @JsonSerialize(using = JsonDateTimeSerializer.class)
     //@Past(message = "Veuillez renseignez une date passé")
-    private DateTime creationDate = new DateTime();
+    private DateTime creationDate;
 
     public Integer getId() {
         return id;

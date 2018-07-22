@@ -11,6 +11,7 @@ import app.repository.contract.IPharmacyRepository;
 import app.repository.contract.IStockRepository;
 import org.joda.time.DateTime;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -44,8 +45,9 @@ public class OrderApiController {
         return new ResponseEntity<>(order, HttpStatus.CREATED);
     }
 
-    @PostMapping("{id}/accept")
-    public ResponseEntity<Order> Accept(@PathVariable("id") Integer id){
+    @PostMapping(value = "{id}/accept", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    public ResponseEntity<?> Accept(@PathVariable("id") Integer id){
         Order order = orderRepository.findById(id);
 
         Stock providerStock = order.getStock();
@@ -73,7 +75,8 @@ public class OrderApiController {
         stockRepository.update(pharmacyStock);
         stockRepository.update(providerStock);
 
-        return new ResponseEntity<>(order, HttpStatus.OK);
+        System.out.print("Accepted");
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("{id}/reject")

@@ -20,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringJUnitConfig(classes = {DataConfiguration.class})
 public class ContactRepositoryTest {
     @Autowired private IContactRepository contactRepository;
-    @Autowired private IAccountRepository accountRepository;
     private Logger logger = LoggerFactory.getLogger(ContactRepositoryTest.class);
     private Contact contact = new Contact();
     @BeforeEach
@@ -153,24 +152,19 @@ public class ContactRepositoryTest {
         assertFalse(contactRepository.phoneOrEmailIsUsed("897556312356"));
     }
 
-    @Test
-    void checkEmailUsedByAccount(){
-        Account account = new Account();
-        account.getDetails().setEmail("account@email.com");
-        accountRepository.save(account);
-        assertTrue(contactRepository.emailIsUsed("account@email.com"));
-    }
 
-    @Test
-    void checkPhoneUsedByAccount(){
-        Account account = new Account();
-        account.getDetails().setPhone("748596748596");
-        accountRepository.save(account);
-        assertTrue(contactRepository.phoneIsUsed("748596748596"));
-    }
+
+//    @Test
+//    void checkPhoneUsedByAccount(){
+//        Account account = new Account();
+//        account.getDetails().setPhone("748596748596");
+//        accountRepository.save(account);
+//        assertTrue(contactRepository.phoneIsUsed("748596748596"));
+//    }
 
     @AfterEach
     void tearDown() {
-        contactRepository.deleteAll();
+
+        //contactRepository.deleteAll();
     }
 }

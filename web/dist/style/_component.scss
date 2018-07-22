@@ -11,3 +11,15 @@
 //  z-index: 0;
 //  left:0;
 //top: 48%}
+
+toast-container{
+  position: absolute;
+  z-index: 2000000;
+  top: 10px;
+  overflow-wrap: break-word;
+  right: 10px;
+  padding: 10px;
+  max-width: 300px;
+  border-radius: 2px;
+  color: #fff;
+}

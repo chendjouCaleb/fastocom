@@ -6,7 +6,7 @@ public enum OrderState {
     REJECTED("rejectée"),
     CANCELED("annulée");
 
-    private String state;
+    public String state;
 
     OrderState(String s){ state = s;}
 }

@@ -38,7 +38,7 @@ public abstract class Organisation {
     @JoinColumn(name = "ContactID", foreignKey = @ForeignKey(name = "FK_Organisation_OrganisationContact_ContactID"))
     private Contact contact = new Contact();
 
-    @OneToMany(mappedBy = "organisation")
+    @OneToMany(mappedBy = "organisation", fetch = FetchType.EAGER)
     private List<Stock> stocks = new ArrayList<>();
 
 

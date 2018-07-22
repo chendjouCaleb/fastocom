@@ -1,8 +1,18 @@
 package app.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class OrderModel {
+
+    @NotNull
     private Integer stockId;
+
+    @NotNull
     private Integer pharmacyId;
+
+    @NotNull
+    @Min(value = 0, message = "Renseignez une quantité supérieure à 0")
     private Integer quantity;
 
     public Integer getStockId() {

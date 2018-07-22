@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="~{../views/provider/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/web/dist/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/web/dist/style/style.css">
+    <link rel="stylesheet" href="/web/dist/MaterialDesignIcons/css/materialdesignicons.min.css">
+    <title>Fournisseur</title>
+</head>
+<body>
+<div layout:fragment="body1" th:object="${provider}">
+
+    <form action="" method="post" th:object="${orderModel}" class="col-lg-4 offset-lg-3 mt-5"  style="background-color: #fff; border: 1px solid #eeebe6">
+        <legend class="legend p-3 mb-5 text-uppercase"> commande</legend>
+
+        <h6 th:text="${stock.product.name}"></h6>
+        <hr>
+
+        <div class="col-12">
+            <h6 class="col-12">Pharmacie</h6>
+            <div class="form-group col-12" th:each="p: ${pharmacies}">
+                <label for="pharmacyId" class="form-group">
+                    <img th:src="@{/organisation/{id}/image(id=${p.id})}" class="square-50 br-50pc">
+                    <span th:text="${p.info.name}"></span>
+                    <input id="pharmacyId" class="form-control" th:field="*{pharmacyId}" type="radio" th:value="${p.id}">
+                </label>
+
+            </div>
+            <div class="text-danger" th:if="${#fields.errors('pharmacyId')}" th:errors="*{pharmacyId}"></div>
+        </div>
+        <hr>
+
+
+        <div class="form-group">
+            <label for="quantity">Quantité</label>
+            <input name="quantity" id="quantity" class="form-control" th:field="*{quantity}" >
+            <div class="text-danger" th:if="${#fields.errors('quantity')}" th:errors="*{quantity}"></div>
+        </div>
+        <input type="hidden" th:field="*{stockId}" th:value="*{stockId}">
+
+        <hr>
+        <div class="form-group mt-5">
+            <button class="btn btn-info btn-block text-uppercase my-3">passer la commande</button>
+        </div>
+
+    </form>
+</div>
+
+
+</body>
+</html>

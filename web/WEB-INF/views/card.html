@@ -22,11 +22,12 @@
     <div class="card-body">
         <img th:src="@{/stock/{id}/image(id=${s.id})}" alt="" class="card-img">
         <h5 class="card-title text-uppercase py-3" th:text="${s.product.name}">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted" th:text="${s.product.retailPrice} + ' FCFA'">Card subtitle</h6>
-        <h6 class="card-subtitle mb-2 text-muted" th:text="${s.product.wholeSalePrice} + ' FCFA'">Card subtitle</h6>
+        <h6 class="card-subtitle my-2 text-muted" th:text="'Prix en pharmacie &bull; ' + ${s.product.retailPrice} + ' FCFA'">Card subtitle</h6>
+        <h6 class="card-subtitle my-2 text-muted" th:text="'Prix de livraison &bull; ' + ${s.product.wholeSalePrice} + ' FCFA'">Card subtitle</h6>
         <h6 class="card-subtitle my-2 text-muted" th:text="'Quantité &bull;  ' + ${s.quantity}">Card subtitle</h6>
     </div>
     <div class="card-footer text-right">
+        <a th:if="${provider}" th:href="@{/provider/{id}/order/add(id=${s.organisation.id}, stock_Id=${s.id})}" class="btn btn-warning order-btn" th:attr="data-stock-id=${s.id}">commander</a>
         <a th:href="${href}" class="btn btn-info"><i class="mdi mdi-plus"></i>plus</a>
     </div>
 </div>
